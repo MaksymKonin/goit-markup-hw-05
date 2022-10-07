@@ -70,6 +70,9 @@ body {
 
 .header-word {
   color: #000000;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-list,
@@ -85,6 +88,7 @@ body {
 
 .header-link,
 .header-contacts-link {
+  position: relative;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -95,13 +99,31 @@ body {
 
 .header-link {
   color: var(--top-text-color);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-logo:focus .header-word,
+.header-logo:hover .header-word {
+  color: var(--accent-color);
 }
 
 .header-link:focus,
 .header-link:hover,
 .current {
   color: var(--accent-color);
-  /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+}
+
+.current::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
 }
 
 .header-contacts-link {
@@ -159,14 +181,18 @@ body {
   border-radius: 4px;
   border: none;
   color: var(--second-text-color);
-  background: var(--accent-color);
+  background-color: var(--accent-color);
   min-width: 219px;
   height: 50px;
+  transition-property: background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-btn:focus,
 .hero-btn:hover {
-  background: #188ce8;
+  color: var(--second-text-color);
+  background-color: #188ce8;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
@@ -253,8 +279,25 @@ body {
 }
 
 .activity-item {
+  position: relative;
   flex-basis: calc((100% - 60px) / 3);
 }
+
+.activity-heading {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  font-size: 14px;
+  line-height: 1, 14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
 /* -------------TEAM------------- */
 .team {
   padding-top: 94px;
@@ -321,6 +364,9 @@ body {
   align-items: center;
   justify-content: center;
   color: #afb1b8;
+  transition-property: background-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-soc-icon {
@@ -361,6 +407,9 @@ body {
   border: 1px solid #afb1b8;
   border-radius: 4px;
   color: #afb1b8;
+  transition-property: border, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-icon {
@@ -398,6 +447,14 @@ body {
 
 .footer-word {
   color: var(--second-text-color);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-logo:focus .footer-word,
+.footer-logo:hover .footer-word {
+  color: var(--accent-color);
 }
 
 .footer-item {
@@ -416,10 +473,16 @@ body {
 
 .footer-address {
   color: var(--second-text-color);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-contacts-link {
   color: rgba(255, 255, 255, 0.6);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-contacts-link:focus,
@@ -461,7 +524,10 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--second-text-color);
-  background: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-soc-icon {
@@ -471,7 +537,6 @@ body {
 .footer-soc-link:hover,
 .footer-soc-link:focus {
   background-color: var(--accent-color);
-  color: var(--second-text-color);
 }
 
 /* -------------PORTFOLIO------------- */
@@ -501,6 +566,9 @@ body {
   border-radius: 4px;
   color: var(--top-text-color);
   background: #f5f4fa;
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-btn:focus,
@@ -509,7 +577,6 @@ body {
   background: var(--accent-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
 }
 
 .gallery-list {
@@ -527,14 +594,44 @@ body {
   flex-basis: calc((100% - 60px) / 3);
 }
 
+.gallery-item:hover .gallery-cover-text {
+  transform: translateY(0);
+}
+
 .gallery-link {
   display: block;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-link:hover,
 .gallery-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.gallery-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-cover-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 63px 24px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--second-text-color);
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(101%);
+  transition: transform 250ms linear;
+  overflow: auto;
 }
 
 .gallery-content {
@@ -550,6 +647,9 @@ body {
   line-height: 2;
   letter-spacing: 0.06em;
   color: var(--top-text-color);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-text {
@@ -559,4 +659,58 @@ body {
   line-height: 1.88;
   letter-spacing: 0.03em;
   color: var(--text-color);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* -------------MODALKA------------- */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms linear, visibility 250ms linear;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%) scale(1);
+  transition: transform 250ms linear;
+  width: 528px;
+  min-height: 581px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.modal-btn {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
